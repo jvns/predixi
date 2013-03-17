@@ -28,10 +28,12 @@ def route_station_predictions(stationid):
 
 def base64_graph(response, stationid):
     df = pd.DataFrame(json.loads(response.text)[str(stationid)]['predictions'])
+    # Make the dataframe index time instead of a meaningless integer
     df.time = pd.to_datetime(df.time * 1000000)
     df.index = df.time
     df = df.drop('time', axis = 1)
-    df[['nbBikes']].plot(figsize=(13, 4))
+    # Plot and convert to base64
+    df[['nbBikes']].plot(figsize=(13, 4), color="darkorange")
     output = StringIO.StringIO()
     savefig(output, format="png")
     contents = output.getvalue().encode("base64")
