@@ -1,0 +1,14 @@
+# shared
+Flask==0.9
+Jinja2==2.6
+Werkzeug==0.8.3
+
+# frontend
+requests==1.1.0
+matplotlib==1.2.0
+numpy==1.7.0
+pandas==0.10.1
+python-dateutil==2.1
+pytz==2013b
+requests==1.1.0
+six==1.2.0
